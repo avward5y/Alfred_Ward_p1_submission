@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Revature ERS</title>
+		<h1 style="text-align:center" name="header">Welcome to the Revature Employee Reimbursement System</h1>
+	</head>
+	<body>
+		<form action="viewReimbursement.html" method="put" style="text-align:center">
+			<label for="username"></label>
+			<input id="username" name="username" type="text" placeholder="Username" >
+			<br>
+			<br>
+			<label for="password"></label>
+			<input id="Password" name="Password" type="password" placeholder="Password">
+			<br>
+			<br>
+			<label for="login"></label>
+			<a th:href="@{viewReimbursement}">
+			<input id="login" type="submit" value="Login">
+			</a>
+			
+		</form>
+		<form style="text-align:center">
+			<a th:href="@{managerLogin}">
+			<h4>Manager Login</h4>
+			</a>
+		</form>
+	</body>
+</html>

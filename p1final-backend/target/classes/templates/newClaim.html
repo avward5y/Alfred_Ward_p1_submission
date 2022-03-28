@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Revature ERS</title>
+</head>
+<body>
+	<div>
+		<h1>Submitting a New Claim</h1>
+		<hr>
+		
+		<form th:action="@{/saveClaim}" th:object = "${Reimbursement}" method="POST">
+			<input type="text" th:field = "*{amount}" placeholder="Reimbursal Amount"/>
+			<input type="date" th:field = "*{submitted}" placeholder="Today's Date"/>
+			<input type="text" th:field = "*{description}" placeholder="Reimbursal Description"/>
+			<select name="reimb_types" id="reimb_types" th:field = "*{type}">
+				<option value="1">Lodging</option>
+				<option value="2">Food</option>
+				<option value="3">Travel</option>
+				<option value="4">Other</option>
+			</select>	
+		
+			<button type = "submit">Submit This Claim</button>
+		</form>
+
+	</div>
+</body>
+</html>
