@@ -49,11 +49,11 @@ public class LoginController {
 	
 	
 	//view all claims
-	@RequestMapping("viewReimbursement")
-	public ModelAndView showReimbursements() {
-		ModelAndView mav = new ModelAndView("viewReimbursement");
-		List<Reimbursement> list = reimbursementService.findAll();
-		mav.addObject("reimbursements", list);
-		return mav;
-	}
+//	@RequestMapping("viewReimbursement")
+//	public ModelAndView showReimbursements() {
+//		ModelAndView mav = new ModelAndView("viewReimbursement");
+//		List<Reimbursement> list = reimbursementService.findAll();
+//		mav.addObject("reimbursements", list);
+//		return mav;
+//	}
 }

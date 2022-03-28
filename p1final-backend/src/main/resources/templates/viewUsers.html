@@ -1,29 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <title>Revature ERS</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+	
 </head>
 <body>
 
-    <div style="text-align:center">
+    <div class="container my-2" style="text-align:center">
         <h1>Employees</h1>
-        <table>
+        <hr>
+        <table border = "1" style="text-align:center" class = "table table-striped table-responsive-md">
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Email</th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Email</th>
+                    <th>password</th>
                     <th>Position Code</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each = "ers_users : ${listOfUsers}">
                     <td th:text="${ers_users.id}"></td>
+                    <td th:text="${ers_users.email}"></td>
                     <td th:text="${ers_users.firstName}"></td>
                     <td th:text="${ers_users.lastName}"></td>
-                    <td th:text="${ers_users.email}"></td>
+                    <td th:text="${ers_password}"></td>
                     <td th:text="${ers_users.roleId}"></td>
                 </tr>
 

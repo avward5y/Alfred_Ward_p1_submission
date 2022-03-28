@@ -26,16 +26,23 @@ public class ReimbursementController {
 	
 
 	//view all claims
-	@GetMapping("viewReimbursement")
-	public ModelAndView showReimbursements() {
-		ModelAndView mav = new ModelAndView("viewReimbursement");
-		List<Reimbursement> list = reimbursementService.findAll();
-		mav.addObject("reimbursements", list);
-		return mav;
+//	@RequestMapping("viewReimbursement")
+//	public ModelAndView showReimbursements() {
+//		ModelAndView mav = new ModelAndView("viewReimbursement");
+//		List<Reimbursement> list = reimbursementService.findAll();
+//		mav.addObject("reimbursements", list);
+//		return mav;
+//	}
+	
+	@RequestMapping("/viewReimbursement")
+	public String viewReimbursementPage(Model model) {
+		model.addAttribute("listOfReimbursements", reimbursementService.findAll());
+		return "viewReimbursement.html";
 	}
+	
 	//creates new reimbursement object 
 	@GetMapping("/newClaim")
-	public ModelAndView newClaim() {
+	public ModelAndView showNewClaimForm() {
 		ModelAndView mav = new ModelAndView("newClaim");
 		Reimbursement newReimbursement = new Reimbursement();
 		mav.addObject("Reimbursement", newReimbursement);
