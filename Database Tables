@@ -1,0 +1,30 @@
+CREATE TABLE `ers_reimbursement` (
+  `reimb_id` int NOT NULL AUTO_INCREMENT,
+  `reimb_amount` float NOT NULL,
+  `reimb_submitted` date DEFAULT NULL,
+  `reimb_resolved` date DEFAULT NULL,
+  `reimb_description` varchar(250) DEFAULT NULL,
+  `reimb_author` int NOT NULL,
+  `reimb_resolver` int DEFAULT NULL,
+  `reimb_status_id` int NOT NULL,
+  `reimb_type_id` int NOT NULL,
+  PRIMARY KEY (`reimb_id`),
+  UNIQUE KEY `reimb_id_UNIQUE` (`reimb_id`),
+  KEY `ers_users_fk_rslvr_idx` (`reimb_resolver`)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `ers_users` (
+  `ers_users_id` int NOT NULL AUTO_INCREMENT,
+  `ers_username` varchar(50) NOT NULL,
+  `ers_password` varchar(50) NOT NULL,
+  `user_first_name` varchar(100) DEFAULT NULL,
+  `user_last_name` varchar(100) DEFAULT NULL,
+  `user_email` varchar(150) DEFAULT NULL,
+  `user_role_id` int DEFAULT NULL,
+  PRIMARY KEY (`ers_users_id`),
+  UNIQUE KEY `ers_username_UNIQUE` (`ers_username`),
+  UNIQUE KEY `ers_users_id_UNIQUE` (`ers_users_id`),
+  UNIQUE KEY `user_email_UNIQUE` (`user_email`),
+  KEY `user_roles_fk_idx` (`user_role_id`),
+  CONSTRAINT `user_roles_fk` FOREIGN KEY (`user_role_id`) REFERENCES `ers_user_roles` (`ers_user_role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
