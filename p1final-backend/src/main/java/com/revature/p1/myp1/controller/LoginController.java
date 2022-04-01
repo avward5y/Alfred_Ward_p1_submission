@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,36 +20,36 @@ import com.revature.p1.myp1.service.UserService;
 
 @Controller
 public class LoginController {
-	
+
 	@Autowired
 	UserService userService;
 	ReimbursementService reimbursementService;
-	
-	//home login page
-	@GetMapping({"/", "/login"})
-	public String index(Model model) {		
+
+	// home login page
+	@GetMapping({ "/", "/login" })
+	public String index(Model model) {
 		return "index";
 	}
-	//checks credentials
-	@PostMapping("/")
+
+	// checks credentials
+	@PostMapping({ "/", "/login" })
 	public Users checkLogin(@RequestBody Login login) {
 		return userService.userLogin(login.getUsername(), login.getPassword());
 	}	
-		
-	//manager home login page
-	@RequestMapping("/managerLogin")
+
+	// manager home login page
+	@GetMapping("/managerLogin")
 	public String managerLogin() {
 		return "managerLogin";
 	}
-	
-	//checks credentials
-		@PostMapping("/managerLogin")
+
+	// checks credentials
+	@PostMapping("/managerLogin")
 	public Users checkManagerLogin(@RequestBody Login login) {
 		return userService.userLogin(login.getUsername(), login.getPassword());
-	}	
-	
-	
-	//view all claims
+	}
+
+	// view all claims
 //	@RequestMapping("viewReimbursement")
 //	public ModelAndView showReimbursements() {
 //		ModelAndView mav = new ModelAndView("viewReimbursement");

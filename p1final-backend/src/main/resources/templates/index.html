@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-<head>
+<head style="background-color: coral;">
 	<meta charset="ISO-8859-1">
-
-	<div>
 		<title>Revature ERS</title>
-		<h1 style="text-align:center" name="header">Welcome to the Revature Employee Reimbursement System</h1>
+		<div class="w3-container w3-teal">
+	<h1 style="text-align:center">Welcome to the Revature Employee Reimbursement System</h1>
 		<br>
 		<hr>
+		</div>
+		
 </head>
-
-<body>
+	<style>	
+			.w3-card-4 {
+ 			max-width: 960px;
+  			margin: auto;
+			}
+	</style>
+	
+<body style="background-color: coral;" class=w3-card-4>
 	<br>
 	<br>
-	<form style="text-align:center">
-		<label for="username"></label>
+	<form style="text-align:center" action="viewReimbursement" method="get">
+		<h3>Please sign in:</h3>
+		<label for="username">Username: </label>
 		<input id="username" name="username" type="text" placeholder="Username">
 		<br>
 		<br>
-		<label for="password"></label>
+		<label for="password">Password: </label>
 		<input id="Password" name="Password" type="password" placeholder="Password">
 		<br>
 		<br>
 		<label for="login"></label>
-		<a th:href="@{/viewReimbursement}">
-			<input id="login" type="submit" value="Login">
+		<a th:href="@{viewReimbursement}">
+		<button class="w3-button w3-hover-red">Login</button>
 		</a>
 		
 	</form>
 	<br>
-	<form style="text-align:center">
+	<form style="text-align:center" action="managerLogin" method="get">
 		<a th:href="@{managerLogin}">
-			<h4>Manager Login</h4>
+		<button class="w3-button w3-hover-red">Manager Login</button>
 		</a>
+		<br>
 	</form>
-	</div>
+	<br>
 </body>
 
 </html>

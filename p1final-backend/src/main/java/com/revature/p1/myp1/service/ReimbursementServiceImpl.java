@@ -56,9 +56,10 @@ public class ReimbursementServiceImpl implements ReimbursementService {
 	}
 
 	@Override
-	public void saveReimbursement(Reimbursement reimbursement) {
+	public void saveReimbursement(Reimbursement newReimbursement) {
 		// TODO Auto-generated method stub
-		this.reimbursementRepository.save(reimbursement);
+		System.out.println("NEW Reimbursement :" + newReimbursement);
+		reimbursementRepository.save(newReimbursement);
 	}
 
 }

@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <head>
 <meta charset="ISO-8859-1">
 <title>Revature ERS</title>
@@ -10,7 +13,7 @@
 <br>
 	<body style="text-align:center">
 			
-			<form action="viewReimbursement.html" method="put">
+			<form action="viewReimbursement" method="get">
 			<label for="username"></label>
 			<input id="username" name="username" type="text" placeholder="Username">
 			<br>
@@ -20,14 +23,14 @@
 			<br>
 			<br>
 			<a th:href="@{viewReimbursement}">
-			<input type="submit" value="Login">
+			<button class="w3-button w3-hover-red">Login</button>
 			</a>
 			</form>
 
 				<br>
 				<label for="logout"></label>
 				<a th:href="@{/}">
-				<input id="logout" type="submit" value="Return to Homepage">
+				<button class="w3-button w3-hover-red">Return to HomePage</button>
 				</a>
 			</form>
 	</body>

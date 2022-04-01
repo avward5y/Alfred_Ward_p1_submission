@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html  xmlns:th="http://www.thymeleaf.org">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <head>
 <meta charset="ISO-8859-1">
 <title>Revature ERS</title>
 </head>
+		<style>
+			.w3-container {
+ 			max-width: 960px;
+  			margin: auto;
+			}
+		</style>
 <body>
-	<div>
+	<div style="text-align:center">
 		<h1>Submitting a New Claim</h1>
 		<hr>
-		
+		<div class="w3-container" style=width:50%>
 		<form th:action="@{/saveClaim}" th:object = "${Reimbursement}" method="POST">
-			<input type="text" th:field = "*{amount}" placeholder="Reimbursal Amount"/>
-			<input type="date" th:field = "*{submitted}" placeholder="Today's Date"/>
-			<input type="text" th:field = "*{description}" placeholder="Reimbursal Description"/>
-			<select name="reimb_types" id="reimb_types" th:field = "*{type}">
+			<label>Reimbursal Amount</label>
+			<input class="w3-input w3-border" type="text" th:field = "*{id}" placeholder="Current User ID"/>
+			<input class="w3-input w3-border" type="text" th:field = "*{amount}" placeholder="Reimbursal Amount"/>
+			<input class="w3-input w3-border" type="date" th:field = "*{submitted}" placeholder="Date of Reimbursal CLaim"/>
+			<input class="w3-input w3-border" type="text" th:field = "*{description}" placeholder="Reimbursal Description"/>
+			<select class="w3-select w3-border" name="reimb_types" id="reimb_types" th:field = "*{type}">
 				<option value="1">Lodging</option>
 				<option value="2">Food</option>
 				<option value="3">Travel</option>
 				<option value="4">Other</option>
 			</select>	
-		
+			<br>
+			<br>
 			<button type = "submit">Submit This Claim</button>
-		</form>
-
+		 </form>
+		</div>
 	</div>
 </body>
 </html>

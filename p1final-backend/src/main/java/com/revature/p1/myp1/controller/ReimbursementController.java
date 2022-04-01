@@ -24,20 +24,11 @@ public class ReimbursementController {
 	@Autowired
 	ReimbursementService reimbursementService;
 	
-
-	//view all claims
-//	@RequestMapping("viewReimbursement")
-//	public ModelAndView showReimbursements() {
-//		ModelAndView mav = new ModelAndView("viewReimbursement");
-//		List<Reimbursement> list = reimbursementService.findAll();
-//		mav.addObject("reimbursements", list);
-//		return mav;
-//	}
 	
 	@RequestMapping("/viewReimbursement")
 	public String viewReimbursementPage(Model model) {
 		model.addAttribute("listOfReimbursements", reimbursementService.findAll());
-		return "viewReimbursement.html";
+		return "viewReimbursement";
 	}
 	
 	//creates new reimbursement object 
@@ -45,6 +36,7 @@ public class ReimbursementController {
 	public ModelAndView showNewClaimForm() {
 		ModelAndView mav = new ModelAndView("newClaim");
 		Reimbursement newReimbursement = new Reimbursement();
+//		newReimbursement.getAuthor();
 		mav.addObject("Reimbursement", newReimbursement);
 		return mav;
 	}
