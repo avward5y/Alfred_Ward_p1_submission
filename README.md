@@ -1,4 +1,6 @@
 **Employee Reimbursement System**
+--------------------------------------------------------------------------------------------------------------------------
+
 
 Project Description
 A dynamic web app that allows a User to login and submit a claim for work reimbursement.
